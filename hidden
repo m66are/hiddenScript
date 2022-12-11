@@ -1,0 +1,19 @@
+#!/bin/bash  
+  hidden=false
+  nbFiles=0   
+  for file in .*; do  
+  if [[ $file != "." && $file != ".." ]]; then  
+   hidden=true
+   nbFiles=$((nbFiles + 1)) 
+   output=$(ls -ld "$file")
+   echo "$output"
+  fi
+  done   
+  if test "$hidden" = true ; then
+  echo "Total $nbFiles"
+  else 
+  echo "no hidden files found in `pwd`"
+  fi
+  
+
+
